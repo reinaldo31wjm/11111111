@@ -200,7 +200,7 @@ O comando deve retornar `OK` para o instalador do Windows e para o pacote Linux.
 ## 8. Como testar
 
 ```bash
-python -m unittest discover -s tests -q  # não exige dependências externas
+python -m unittest discover -s tests -q  # recomendado; não exige dependências externas
 # opcional, se pytest estiver instalado:
 python -m pytest -q
 ```
@@ -278,8 +278,8 @@ organiza-local/
 - A quarentena reconhece executáveis por extensão e pelos bytes iniciais. **Não é antivírus.**
 - Perfis e PIN controlam o painel, mas não substituem as contas de usuário do sistema operacional.
 - O site da Vercel depende do navegador permitir o acesso à rede local (Chrome/Edge recentes perguntam). Se não houver permissão, use a interface local em `http://127.0.0.1:8765`.
-- A validação funcional foi executada em Linux. Windows foi validado por análise do código e dos scripts; execute testes em Windows real antes da apresentação.
 - Não há criptografia dos backups.
+- Foi testado em Linux (Debian/Ubuntu). O Windows foi validado pelo código e pelos scripts, e precisa de teste na máquina de apresentação.
 
 ## 12. Possíveis melhorias
 
