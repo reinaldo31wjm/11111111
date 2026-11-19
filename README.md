@@ -216,6 +216,14 @@ São **81 testes automatizados** em `tests/`. Eles cobrem:
 
 Cada teste roda numa pasta temporária isolada.
 
+### Estado atual da validação
+
+Na branch `main`, os 81 testes passam com `unittest` em Linux. A interface JavaScript também foi verificada com `node --check`, os scripts Bash passaram na validação de sintaxe e os checksums dos instaladores publicados conferem.
+
+Ainda não há workflow de CI versionado no repositório. Portanto, essas verificações precisam ser executadas manualmente antes de cada pull request. O Windows continua com validação parcial: os scripts e o código foram revisados, mas o instalador, os atalhos, o início automático e a desinstalação ainda precisam ser executados em uma máquina Windows real.
+
+O comando oficial, sem dependências externas, é `python -m unittest discover -s tests -q`. O uso de `pytest` é opcional e requer instalação separada.
+
 **Verificação manual reproduzível:**
 
 1. Coloque em Downloads um `trabalho_fatec.pdf`, um `boleto.pdf` e um `foto.jpg`.
@@ -279,7 +287,8 @@ organiza-local/
 - Perfis e PIN controlam o painel, mas não substituem as contas de usuário do sistema operacional.
 - O site da Vercel depende do navegador permitir o acesso à rede local (Chrome/Edge recentes perguntam). Se não houver permissão, use a interface local em `http://127.0.0.1:8765`.
 - Não há criptografia dos backups.
-- Foi testado em Linux (Debian/Ubuntu). O Windows foi validado pelo código e pelos scripts, e precisa de teste na máquina de apresentação.
+- A validação automatizada foi executada em Linux (Debian/Ubuntu). No Windows, o código e os scripts foram revisados, mas ainda é necessário testar em uma máquina real o instalador, os atalhos, o início automático, a organização, os backups e a desinstalação.
+- Não há integração contínua configurada no repositório; testes e validações de sintaxe devem ser executados manualmente antes de um pull request.
 
 ## 12. Possíveis melhorias
 
